@@ -9,13 +9,13 @@ using Playground.core.Models;
 using AutoMapper.QueryableExtensions;
 using System.Linq;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.OData;
+using Microsoft.AspNet.OData;
 using AutoMapper;
 
 namespace Playground.core.Controllers
 {
     //[Authorize]
-    [EnableQuery]
+    //[EnableQuery]
     [Route("odata/Companies")]
     public class CompaniesController : EntityController<Company,int>
     {

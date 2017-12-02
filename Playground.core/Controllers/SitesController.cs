@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.JsonPatch;
 
 using Playground.core.Models;
 using System.Collections.Generic;
-using Microsoft.AspNetCore.OData;
+using Microsoft.AspNet.OData;
 
 namespace Playground.core.Controllers
 {

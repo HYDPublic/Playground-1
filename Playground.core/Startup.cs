@@ -17,7 +17,7 @@ using AspNet.Security.OpenIdConnect.Primitives;
 using Playground.core.Models;
 using Playground.core.Hubs;
 using Playground.core.Services;
-using Microsoft.AspNetCore.OData.Extensions;
+using Microsoft.AspNet.OData.Extensions;
 using Playground.core.Odata;
 using Serilog;
 using Serilog.Events;
@@ -157,7 +157,10 @@ namespace Playground.core
             app.UseStaticFiles();
             
             app.UseMvc( builder => {
-                builder.MapODataRoute( app.ApplicationServices.GetRequiredService<PlaygroundModelBuilder>().GetEdmModel() );
+
+                var edmModel = app.ApplicationServices.GetRequiredService<PlaygroundModelBuilder>().GetEdmModel();
+                builder.MapODataServiceRoute("OData_Kore_Web", "odata", edmModel);
+
                 builder.MapRoute("default", "api/{controller}/{action}");
             } );
 
