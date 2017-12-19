@@ -158,6 +158,14 @@ namespace Playground.core
             
             app.UseMvc( builder => {
 
+                builder
+                    .Count()
+                    .Expand()
+                    .Filter()
+                    .OrderBy()
+                    .Select()
+                    ;
+
                 var edmModel = app.ApplicationServices.GetRequiredService<PlaygroundModelBuilder>().GetEdmModel();
                 builder.MapODataServiceRoute("OData_Kore_Web", "odata", edmModel);
 
